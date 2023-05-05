@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<!--author: Ryan Smith 21373786-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script>
+        function handleIncrement(triangle) {
+
+            //get shelf num
+            var element = document.getElementById(triangle);
+            //get shelf num from obj
+            var value = parseInt(element.getAttribute("value"));
+            value++;
+            //get button element of N to change
+            //set
+            element.setAttribute("value", value);
+            element.innerHTML = value;
+        }
+        function handleDecrement(triangle) {
+            var element = document.getElementById(triangle);
+            var value = parseInt(element.getAttribute("value"));
+            //Can't have negative food
+            if (value > 0) {
+                value--;
+                element.setAttribute("value", value);
+                element.innerHTML = value;
+            }
+        }
+    </script>
+    <style>
+
+        /*heading text*/
+        .text{
+            text-align: center;
+        }
+
+        /*date*/
+        .input{
+            border: none;
+            outline: none;
+            font-size: 25px;
+            width:145px;
+        }
+        .brackets{
+            font-size: 25px;
+        }
+
+        /*position shapes on each shelf*/
+        .row{
+            /*flex allows rows*/
+            display: flex;
+            position: absolute;
+            top: 50px;
+        }
+        .row1 {
+            left: -30px;
+        }
+        .row2 {
+            left: 28px;
+        }
+        .row3 {
+            left: 85px;
+        }
+        .row4 {
+            left: 135px;
+        }
+        .row5 {
+            left: 185px;
+        }
+        .row6 {
+            left: 235px;
+        }
+
+        /*shapes*/
+        .circle {
+            background-color: #808080;
+            border: 1px solid black;
+            color: white;
+            height: 20px;
+            width: 20px;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 50%;
+        }
+        .controls {
+            visibility: hidden;
+            cursor: pointer;
+        }
+        .triangle {
+            width: 0;
+            height: 0;
+            /*top half of square*/
+            /*/border-top: 50px solid transparent;*/
+            /*sometimes have to specify even though this is the default*/
+            position: relative;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            margin: auto;
+        }
+        .trapezoid {
+            width: 0;
+            height: 0;
+            position: relative;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            margin: auto;
+        }
+
+        /*on hover of shape, show its controls*/
+        .triangle:hover .controls {
+            visibility: visible;
+        }
+        .trapezoid:hover .controls {
+            visibility: visible;
+        }
+
+        /*draw shelves*/
+        .shelf1 {
+            border-bottom: 100px solid red;
+        }
+        .shelf2 {
+            border-bottom: 100px solid orange;
+            width: 115px;
+        }
+        .shelf3 {
+            border-bottom: 100px solid yellow;
+            width: 230px;
+        }
+        .shelf4 {
+            border-bottom: 100px solid #33B6FF;
+            width: 330px;
+        }
+        .shelf5 {
+            border-bottom: 100px solid #965113;
+            width: 430px;
+        }
+        .shelf6 {
+            border-bottom: 100px solid #2ED530;
+            width: 530px;
+        }
+    </style>
+
+
+    <meta charset="utf-8" />
+    <title>Food pyramid</title>
+</head>
+<body>
+
+    <!--Heading and Date-->
+    <div class="text">
+        <h1>My food pyramid</h1>
+        <nobr class="brackets">[</nobr>
+        <input class="input text" type="text" placeholder="Input a date" />
+        <nobr class="brackets">]</nobr>
+    </div>
+
+    <!--Shelves-->
+    <div class="triangle shelf1">
+        <div class="row row1">
+            <button id="selfclick" class="circle controls" onclick='handleIncrement("changeNum1")' ;>
+                +
+            </button>
+            <div id="changeNum1" class="circle" value="0">
+                0
+            </div>
+            <button id="selfclick" class="circle controls" onclick='handleDecrement("changeNum1")'>
+                -
+            </button>
+        </div>
+    </div>
+
+    <div class="trapezoid shelf2">
+        <div class="row row2">
+            <button id="selfclick" class="circle controls" onclick='handleIncrement("changeNum2")' ;>
+                +
+            </button>
+            <div id="changeNum2" class="circle" value="0">
+                0
+            </div>
+            <button id="selfclick" class="circle controls" onclick='handleDecrement("changeNum2")'>
+                -
+            </button>
+        </div>
+        <p></p>
+    </div>
+
+    <div class="trapezoid shelf3">
+        <div class="row row3">
+            <button id="selfclick" class="circle controls" onclick='handleIncrement("changeNum3")' ;>
+                +
+            </button>
+            <div id="changeNum3" class="circle" value="0">
+                0
+            </div>
+            <button id="selfclick" class="circle controls" onclick='handleDecrement("changeNum3")'>
+                -
+            </button>
+        </div>
+        <p></p>
+    </div>
+
+    <div class="trapezoid shelf4">
+        <div class="row row4">
+            <button id="selfclick" class="circle controls" onclick='handleIncrement("changeNum4")' ;>
+                +
+            </button>
+            <div id="changeNum4" class="circle" value="0">
+                0
+            </div>
+            <button id="selfclick" class="circle controls" onclick='handleDecrement("changeNum4")'>
+                -
+            </button>
+        </div>
+    </div>
+
+    <div class="trapezoid shelf5">
+        <div class="row row5">
+            <button id="selfclick" class="circle controls" onclick='handleIncrement("changeNum5")' ;>
+                +
+            </button>
+            <div id="changeNum5" class="circle" value="0">
+                0
+            </div>
+            <button id="selfclick" class="circle controls" onclick='handleDecrement("changeNum5")'>
+                -
+            </button>
+        </div>
+    </div>
+    <div class="trapezoid shelf6">
+        <div class="row row6">
+            <button id="selfclick" class="circle controls" onclick='handleIncrement("changeNum6")' ;>
+                +
+            </button>
+            <div id="changeNum6" class="circle" value="0">
+                0
+            </div>
+            <button id="selfclick" class="circle controls" onclick='handleDecrement("changeNum6")'>
+                -
+            </button>
+        </div>
+    </div>
+</body>
+</html>
